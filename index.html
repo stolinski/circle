@@ -1,13 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Scott App</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div class="container" style="--total: 12">
+      <div class="square" style="--i: 0">1</div>
+      <div class="square" style="--i: 1">2</div>
+      <div class="square" style="--i: 2">3</div>
+      <div class="square" style="--i: 3">4</div>
+      <div class="square" style="--i: 4">5</div>
+      <div class="square" style="--i: 5">6</div>
+      <div class="square" style="--i: 6">7</div>
+      <div class="square" style="--i: 7">8</div>
+      <div class="square" style="--i: 8">9</div>
+      <div class="square" style="--i: 9">10</div>
+      <div class="square" style="--i: 10">11</div>
+      <div class="square" style="--i: 11">12</div>
+    </div>
+    <div class="wedge"></div>
   </body>
+  <style>
+    body {
+      background: #eee;
+    }
+    .square {
+      --offset: calc(var(--i) / var(--total) * 100%);
+      --delta: 0%;
+      width: 50px;
+      height: 50px;
+      background-color: hotpink;
+      box-shadow: 0 0 4px rgb(0 0 0 / 0.2);
+      border-radius: 10px;
+      offset-rotate: 0deg;
+      offset-path: circle(100px at 250px 250px);
+      offset-distance: calc(var(--offset) + var(--delta));
+      transition: offset-distance 0.2s ease;
+    }
+
+    .square:hover + .square {
+      --delta: 5%;
+    }
+    .square:hover + .square + .square {
+      --delta: 2%;
+    }
+    .square:has(+ .square:hover) {
+      --delta: -5%;
+    }
+    .square:has(+ .square + .square:hover) {
+      --delta: -2%;
+    }
+
+    .wedge {
+      background: #358af6;
+      height: 100px;
+      width: 30px;
+      z-index: -1;
+      position: relative;
+      border-radius: 10px;
+      offset-distance: 0%;
+      offset-path: circle(100px at 250px 250px);
+    }
+  </style>
 </html>

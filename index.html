@@ -4,25 +4,34 @@
     <title>Scott App</title>
   </head>
   <body>
-    <div class="container" style="--total: 12">
-      <div class="square" style="--i: 0">1</div>
-      <div class="square" style="--i: 1">2</div>
-      <div class="square" style="--i: 2">3</div>
-      <div class="square" style="--i: 3">4</div>
-      <div class="square" style="--i: 4">5</div>
-      <div class="square" style="--i: 5">6</div>
-      <div class="square" style="--i: 6">7</div>
-      <div class="square" style="--i: 7">8</div>
-      <div class="square" style="--i: 8">9</div>
-      <div class="square" style="--i: 9">10</div>
-      <div class="square" style="--i: 10">11</div>
-      <div class="square" style="--i: 11">12</div>
+    <div class="parent">
+      <div class="container" style="--total: 15">
+        <div class="square" style="--i: 0">1</div>
+        <div class="square" style="--i: 1">2</div>
+        <div class="square" style="--i: 2">3</div>
+        <div class="square" style="--i: 3">4</div>
+        <div class="square" style="--i: 4">5</div>
+        <div class="square" style="--i: 5">6</div>
+        <div class="square" style="--i: 6">7</div>
+        <div class="square" style="--i: 7">8</div>
+        <div class="square" style="--i: 8">9</div>
+        <div class="square" style="--i: 9">10</div>
+        <div class="square" style="--i: 10">11</div>
+        <div class="square" style="--i: 11">12</div>
+        <div class="square" style="--i: 12">13</div>
+        <div class="square" style="--i: 13">14</div>
+        <div class="square" style="--i: 14">15</div>
+      </div>
+      <div class="doughnut"></div>
     </div>
-    <div class="wedge"></div>
   </body>
   <style>
     body {
-      background: #eee;
+      background: #d9dee5;
+    }
+
+    .parent {
+      position: relative;
     }
     .square {
       --offset: calc(var(--i) / var(--total) * 100%);
@@ -33,9 +42,26 @@
       box-shadow: 0 0 4px rgb(0 0 0 / 0.2);
       border-radius: 10px;
       offset-rotate: 0deg;
-      offset-path: circle(100px at 250px 250px);
+      offset-path: circle(100px at 150px 150px);
       offset-distance: calc(var(--offset) + var(--delta));
       transition: offset-distance 0.2s ease;
+      transform-style: preserve-3d;
+      &::before {
+        opacity: 0;
+        content: "";
+        border-radius: 10px;
+        height: 90px;
+        width: 38px;
+        transform: translateZ(-1px);
+        position: absolute;
+        offset-path: circle(1px at 25px 25px);
+        offset-distance: calc(var(--offset) + var(--delta));
+        background: #358af6;
+        clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+      }
+      &:hover::before {
+        opacity: 1;
+      }
     }
 
     .square:hover + .square {
@@ -44,22 +70,51 @@
     .square:hover + .square + .square {
       --delta: 2%;
     }
+    .square:hover + .square + .square + .square {
+      --delta: 1%;
+    }
     .square:has(+ .square:hover) {
       --delta: -5%;
     }
     .square:has(+ .square + .square:hover) {
       --delta: -2%;
     }
+    .square:has(+ .square + .square + .square:hover) {
+      --delta: -1%;
+    }
+    .square:first-child:hover ~ .square:last-child {
+      --delta: -5%;
+    }
+    .square:first-child:hover ~ .square:has(+ .square:last-child) {
+      --delta: -2%;
+    }
+    .square:first-child:hover ~ .square:has(+ .square + .square:last-child) {
+      --delta: -1%;
+    }
+    .square:first-child:has(~ .square:last-child:hover) {
+      --delta: 5%;
+    }
+    .square:first-child + .square:has(~ .square:last-child:hover) {
+      --delta: 2%;
+    }
+    .square:first-child + .square + .square:has(~ .square:last-child:hover) {
+      --delta: 1%;
+    }
 
-    .wedge {
-      background: #358af6;
-      height: 100px;
-      width: 30px;
+    .container {
+      inset: 0;
+      position: absolute;
+    }
+
+    .doughnut {
+      inset: 0;
       z-index: -1;
-      position: relative;
-      border-radius: 10px;
-      offset-distance: 0%;
-      offset-path: circle(100px at 250px 250px);
+      position: absolute;
+      background: radial-gradient(circle, transparent 20%, #eae9e7 20%);
+      border-radius: 100%;
+      height: 300px;
+      width: 300px;
+      filter: drop-shadow(0 0 1px #bab6ba);
     }
   </style>
 </html>

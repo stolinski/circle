@@ -59,8 +59,8 @@
     <div class="doughnut"></div>
   </div>
   <div class="controls">
-    <button on:click={() => removeApp(0)} disabled={activeApps.length === 0}>-</button>
-    <button on:click={addApp} disabled={discardedApps.length === 0}>+</button>
+    <button onclick={() => removeApp(0)} disabled={activeApps.length === 0}>-</button>
+    <button onclick={addApp} disabled={discardedApps.length === 0}>+</button>
   </div>
 </div>
 
@@ -71,6 +71,8 @@
   }
 
   .parent {
+    scale: 2;
+    transform-origin: top;
     padding: 40px;
     position: relative;
     background-image: url(/grid.svg), url(/mesh.svg);

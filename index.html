@@ -170,11 +170,9 @@
     .square:first-child + p + .square:has(~ .square:hover + p:last-child),
     .square:first-child:has(~ .square:hover + p + .square + p:last-child) {
       z-index: 2;
-      --delta: 2%;
+      --delta: 3%;
     }
 
-    /* 14 hover 2 1% */
-    /* 13 hover 1 1% */
     .square:hover + p + .square + p + .square + p + .square,
     .square:first-child + p + .square + p + .square:has(~ .square:hover + p:last-child),
     .square:first-child:has(~ .square:hover + p + .square + p + .square + p:last-child),
@@ -182,10 +180,6 @@
       z-index: 1;
       --delta: 1%;
     }
-
-    /* ,
-  */
-
     .square:has(+ p + .square:hover),
     .square:first-child:hover ~ .square:has(+ p:last-child) {
       z-index: 5;
@@ -195,8 +189,9 @@
     .square:first-child:hover ~ .square:has(+ p + .square + p:last-child),
     .square:first-child + p + .square:hover ~ .square:has(+ p:last-child) {
       z-index: 2;
-      --delta: -2%;
+      --delta: -3%;
     }
+
     .square:has(+ p + .square + p + .square + p + .square:hover),
     .square:first-child:hover ~ .square:has(+ p + .square + p + .square + p:last-child),
     .square:first-child + p + .square:hover ~ .square:has(+ p + .square + p:last-child),

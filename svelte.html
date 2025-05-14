@@ -3,8 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <title>Svelte Page</title>
+    <style>
+      nav {
+        background: #4e3f52;
+        padding: 1rem 2rem;
+        margin: 1rem auto;
+        border-radius: 12px;
+        width: fit-content;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        box-shadow: 0 8px 16px -4px rgb(0 0 0 / 0.2), 0 4px 8px -2px rgb(0 0 0 / 0.15),
+          0 2px 4px rgb(0 0 0 / 0.1);
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-family: "SF Pro Rounded";
+        font-weight: 600;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
+    <nav>
+      <a href="/">HTML</a>
+      <a href="/svelte">Svelte</a>
+    </nav>
     <div id="app"></div>
     <script type="module" src="/src/svelte.js"></script>
   </body>

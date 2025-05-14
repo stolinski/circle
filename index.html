@@ -4,6 +4,10 @@
     <title>Scott App</title>
   </head>
   <body>
+    <nav>
+      <a href="/">HTML</a>
+      <a href="/svelte">Svelte</a>
+    </nav>
     <div class="parent">
       <div class="container-2">
         <div class="container" style="--total: 28">
@@ -111,6 +115,27 @@
       background: #333;
       position: relative;
     }
+    nav {
+      background: #4e3f52;
+      padding: 1rem 2rem;
+      margin: 1rem auto;
+      border-radius: 12px;
+      width: fit-content;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      box-shadow: 0 8px 16px -4px rgb(0 0 0 / 0.2), 0 4px 8px -2px rgb(0 0 0 / 0.15),
+        0 2px 4px rgb(0 0 0 / 0.1);
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-family: "SF Pro Rounded";
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
 
     .parent {
       scale: 2;
@@ -122,8 +147,11 @@
       background-size: 50%, cover;
       width: 300px;
       margin: 0 auto;
-      border-radius: 5px;
+      border-radius: 8px;
       height: 300px;
+      border: 1px solid #bbb;
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2), 0 10px 15px -3px rgb(0 0 0 / 0.15),
+        0 4px 6px -4px rgb(0 0 0 / 0.1), 0 2px 4px rgb(0 0 0 / 0.1);
     }
     .square {
       --offset: calc(var(--i) / var(--total) * 100%);

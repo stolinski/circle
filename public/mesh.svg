@@ -1,0 +1,16 @@
+<svg class="main svelte-1ahfjoa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 700 525"><style>.multiply { mix-blend-mode: multiply }
+            .normal { mix-blend-mode: normal }
+            .overlay { mix-blend-mode: overlay }
+            .screen { mix-blend-mode: screen }
+            .darken { mix-blend-mode: darken }
+            .lighten { mix-blend-mode: lighten }
+            .color-dodge { mix-blend-mode: color-dodge }
+            .saturation { mix-blend-mode: saturation }
+            .color { mix-blend-mode: color }
+            .luminosity { mix-blend-mode: luminosity }
+            .hard-light { mix-blend-mode: hard-light }
+            .soft-light { mix-blend-mode: soft-light }
+            .difference { mix-blend-mode: difference }
+            .exclusion { mix-blend-mode: exclusion }
+            .hue { mix-blend-mode: hue }
+        </style><defs><filter id="blur1" width="120%" height="120%" filterUnits="userSpaceOnUse" x="-10%" y="-10%"><feGaussianBlur stdDeviation="75" result="effect1_foregroundBlur"></feGaussianBlur></filter></defs><rect width="700" height="525" fill="#dad6ca"></rect><g filter="url(#blur1)"><circle cy="449.5" cx="84" r="400" fill="#a1afb7" class="normal svelte-1ahfjoa"></circle><circle cy="78.5" cx="133" r="400" fill="#daced7" class="normal svelte-1ahfjoa"></circle><circle cy="261.5" cx="657" r="200" fill="#e6e0cd" class="normal svelte-1ahfjoa"></circle></g></svg>
